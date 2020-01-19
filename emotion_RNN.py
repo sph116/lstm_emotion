@@ -25,7 +25,7 @@ batch_size = 100
 n_epoch = 4
 input_length = 150
 
-f = open("C:/Users/孙佩豪/Desktop/爬虫（工作）/中国新闻网滚动页面/model/评价语料索引及词向量2.pkl", 'rb')  # 预先训练好的
+f = open("./model/评价语料索引及词向量2.pkl", 'rb')  # 预先训练好的
 index_dict = pickle.load(f)  # 索引字典，{单词: 索引数字}
 word_vectors = pickle.load(f)  # 词向量, {单词: 词向量(100维长的数组)}
 
