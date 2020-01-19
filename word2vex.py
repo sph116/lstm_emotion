@@ -1,6 +1,6 @@
 import pickle
 import logging
-from process_action import process_txt
+from process_text import del_stopwords
 import numpy as np
 import pandas as pd
 np.random.seed(1337)  
@@ -51,8 +51,8 @@ except Exception as e:
     pos_data = sorted(set(pos_data1), key=pos_data1.index)
 
 
-    neg_data = [del_stop_words(data.replace("\n", "")).split(" ") for data in neg_data]
-    pos_data = [del_stop_words(data.replace("\n", "")).split(" ") for data in pos_data]
+    neg_data = [del_stop_words(data.replace("\n", "")) for data in neg_data]
+    pos_data = [del_stop_words(data.replace("\n", "")) for data in pos_data]
     data = neg_data + pos_data
     # a = 0
     # for i in data:
