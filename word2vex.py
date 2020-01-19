@@ -3,7 +3,7 @@ import logging
 from process_action import process_txt
 import numpy as np
 import pandas as pd
-np.random.seed(1337)  # For Reproducibility
+np.random.seed(1337)  
 
 
 from gensim.models.word2vec import Word2Vec
