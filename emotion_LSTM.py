@@ -10,7 +10,7 @@ from keras.models import Sequential
 from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import LSTM
 from keras.layers.core import Dense, Dropout, Activation
-from process_action import process_txt
+from process_text import del_stopwords
 from sklearn.cross_validation import train_test_split
 import matplotlib.pyplot as plt   #可视化类
 from keras.models import load_model
@@ -147,7 +147,7 @@ def prodection(new_dic, test_txt):
     keras.backend.clear_session()
     model = load_model('./model/emotion_model_LSTM.h5')
 
-    test_txt = process_txt(test_txt)
+    test_txt = del_stopwords(test_txt)
 
     test_txt = text_to_index_array(new_dic, test_txt)
 
@@ -194,8 +194,8 @@ if __name__ == "__main__":
         neg_data = sorted(set(neg_data1), key=neg_data1.index)  #列表去重 保持原来的顺序
         pos_data = sorted(set(pos_data1), key=pos_data1.index)
 
-        neg_data = [process_txt(data) for data in neg_data]
-        pos_data = [process_txt(data) for data in pos_data]
+        neg_data = [del_stopwords(data) for data in neg_data]
+        pos_data = [del_stopwords(data) for data in pos_data]
         data = neg_data + pos_data
 
 
